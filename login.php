@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <?php include('includes/head.html'); ?>
-<title>Document</title>
+<title>Log in</title>
 </head>
 
 <body class="main-container">
