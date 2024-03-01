@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if ($user) {
 		if (password_verify($_POST['password'], $user['password'])) {
 			session_start();
+			session_regenerate_id(); //prevents session fixation attck
 			$_SESSION['user_id'] = $user['id'];
 			header("Location: index.php");
 			exit;
@@ -19,31 +20,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$invalid = true;
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+<?php include('includes/head.html'); ?>
+<title>Document</title>
 </head>
 
-<body>
-	<form action="login.php" method="POST">
-		<h2>Login</h2>
-		<label for="username">Username:</label>
-		<input type="text" id="username" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"><br>
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password"><br>
-		<?php
-		if ($invalid) { ?>
-			<p>Nome de usuário e/ou senha incorretos</p>
-		<?php }
-		?>
-		<input type="submit" value="log in">
-		<a href="signup.html">Registrar</a>
-
-	</form>
+<body class="main-container">
+	<div class="card" style="width: 18rem;">
+		<div class="card-body">
+			<h5 class="card-title">Log In</h5>
+			<form action="login.php" method="POST">
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+					<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="username" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>">
+				</div>
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="inputGroup-sizing-default">Senha</span>
+					<input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="password" name="password">
+				</div>
+				<?php
+				if ($invalid) { ?>
+					<p>Nome de usuário e/ou senha incorretos</p>
+				<?php }
+				?>
+				<input class="btn btn-primary" type="submit" value="Log in">
+			</form>
+			<a href="signup.html" class="card-link">Registrar</a>
+		</div>
+	</div>
 </body>
 
 </html>

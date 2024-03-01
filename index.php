@@ -5,26 +5,25 @@ if (isset($_SESSION['user_id'])) {
     $sql = "SELECT * FROM user WHERE id = {$_SESSION['user_id']}"; //prepare a SQL string
     $result = $mysqli->query($sql); //query made
     $user = $result->fetch_assoc(); //organizes into an array
+} else {
+    header("Location: login.php");
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<?php include('includes/head.html'); ?>
+<title>Home</title>
 </head>
 
-<body>
-    <h2>Home</h2>
+<body class="main-container">
     <?php
     if (isset($user)) { ?>
-        <p>Bem vindo, <?= $user['username'] ?></p>
-        <a href="logout.php">Sair</a>
-    <?php } else { ?>
-        <a href="login.php">Logar</a>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title">Home</h3>
+                <h6>Bem vindo, <?= htmlspecialchars($user['username']);  ?></h6>
+                <a href="logout.php" class="btn btn-danger">Sair</a>
+            </div>
+        </div>
     <?php } ?>
 </body>
 
