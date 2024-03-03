@@ -1,5 +1,4 @@
 :root {
-    --main-bg: #00103f;
     --alert: #940b0b;
 }
 
@@ -8,13 +7,22 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    gap: 1rem;
 }
 
 .card{
-    margin-top: 8em;
+    margin-top: 5em;
     box-shadow: 5px 5px 16px;
+}
+.card:hover {
+    box-shadow: 5px 5px 16px green !important;
+    cursor: pointer;
 }
 
 .error{
     color: var(--alert);
+}
+
+.navbar-container {
+    position: fixed;
 }

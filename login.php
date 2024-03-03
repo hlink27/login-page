@@ -1,4 +1,5 @@
 <?php
+$invalid = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$mysqli = require __DIR__ . '/utils/database.php'; // connect to db
 	$sql = sprintf(
