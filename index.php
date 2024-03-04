@@ -32,17 +32,13 @@ if (isset($_SESSION['user_id'])) {
         <?php
         if (sizeof($movies) > 0) {
             foreach ($movies as $movie) { ?>
-                <div class="card" style="width: 12rem;">
-                    <img src="<?= $movie['url'] ?>" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h6 class="card-title"><?= $movie['title'] ?></h6>
+                <a href="movie.php?id=<?php echo $movie['id']; ?>">
+                    <div class="movie-poster" title="<?= $movie['title'] ?>">
+                        <img src="<?= $movie['url'] ?>" alt="<?= $movie['title'] ?>">
                     </div>
-                </div>
-            <?php }
-        } else { ?>
-            <h3>Nenhuma entrada encontrada :(</h3>
+                </a>
         <?php }
-        ?>
+        } ?>
     </main>
 </body>
 

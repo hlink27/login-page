@@ -10,7 +10,7 @@
           <a class="btn btn-outline-success" aria-current="page" href="movies/add-movie.php" style="margin: 0.5rem;">Adicionar Filme</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-outline-warning" href="#" style="margin: 0.5rem;">Filme Aleatório</a>
+          <a class="btn btn-outline-warning" href="movies/random.php" style="margin: 0.5rem;">Filme Aleatório</a>
         </li>
       </ul>
       <span>
