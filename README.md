@@ -1,5 +1,16 @@
+# login-page
+Made while I was studying php. 
+
+<p align="center">
+    <img src="https://imgur.com/NTtYXFf.png">
+    <img src="https://i.imgur.com/vbPZhX3.png">
+    <img src="https://imgur.com/QDhAwhz.png">
+    <img src="https://imgur.com/Ud35FrU.png">
+</p>
+The option "Filme Aleatório" return a random page of a movie you still haven't watched.
+
+## Database tables (mysql)
 Information about database connection in ``` utils/database.php ```
-## Database table (mysql)
 ```
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
