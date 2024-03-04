@@ -41,6 +41,12 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `email` (`email`);
 
 ALTER TABLE `movie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+ALTER TABLE `movie`
   ADD CONSTRAINT `movie_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`id`);
 COMMIT;
 ```
